@@ -1,15 +1,9 @@
-import { useEffect } from "react"
-import { useGetProductQuery, useGetProductsQuery } from "./features/products/api"
+import { Navbar } from "./components/Navbar"
 
 const App = () => {
-  const {data,isLoading} = useGetProductQuery('product-1')
-  useEffect(()=>{
-   console.log("innter",data);
-    
-  })
   return (
     <div>
-      {isLoading&&"loading"}
+      <Navbar/>
     </div>
   )
 }
