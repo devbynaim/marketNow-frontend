@@ -146,6 +146,14 @@ a{
 }
 
 .container {
+  width: 100%;
   max-width: 1000px;
   margin: auto;
+}
+
+.image-gallery-slide .image-gallery-image{
+  /* overflow: hidden; */
+  /* max-height: 327px !important; */
+  height: 300px;
+  object-fit: cover;
 }

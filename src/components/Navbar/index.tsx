@@ -3,21 +3,22 @@ import "remixicon/fonts/remixicon.css";
 
 const NavbarMain = styled.div`
   background-color: #ffffff;
-  padding: 10px 0;
+  padding: 10px 16px;
+  background: var(--card-bg-color, #fff);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.14);
 `;
 const NavbarContainer = styled.div`
   display: grid;
+  gap:8px;
   grid-template-areas:
-    'menuLeft menuLeft menuRight menuRight'
-    'menuSearch  menuSearch menuSearch menuSearch';
+    "menuLeft menuLeft menuRight menuRight"
+    "menuSearch  menuSearch menuSearch menuSearch";
 
-  gap: 16px;
   align-items: center;
   height: 100%px;
-  padding: 0 16px;
-  @media screen and (min-width:784px){
-    grid-template-areas:
-    'menuLeft menuSearch menuRight';
+  @media screen and (min-width: 784px) {
+    grid-template-areas: "menuLeft menuSearch menuRight";
   }
 `;
 const Logo = styled.a`
@@ -36,14 +37,12 @@ const LeftSide = styled.div`
 
 const SideMenuActionDiv = styled.div`
   font-size: 24px;
-  @media screen and (min-width:784px){
+  @media screen and (min-width: 784px) {
     display: none;
-    
   }
-`
+`;
 
-const SideMenu = styled.div``
-
+const SideMenu = styled.div``;
 
 const SearchBox = styled.div`
   width: 100%;
@@ -91,18 +90,15 @@ const SearchRecommendationDiv = styled.div`
   flex-direction: column;
   position: absolute;
   border-radius: 5px;
- 
-`
+`;
 
 const RecommendateItem = styled.a`
-   color: black;
-   padding: 10px;
-   &:hover{
-     background-color: #FAFAFA;
-
-   }
-
-`
+  color: black;
+  padding: 10px;
+  &:hover {
+    background-color: #fafafa;
+  }
+`;
 
 const RightSide = styled.div`
   display: flex;
@@ -144,19 +140,19 @@ export const Navbar = () => {
       <NavbarContainer className="container">
         <LeftSide>
           <SideMenuActionDiv>
-          <i className="ri-menu-fill"></i>
+            <i className="ri-menu-fill"></i>
           </SideMenuActionDiv>
           <Logo>MarketNow</Logo>
         </LeftSide>
         <SearchBox>
           <SearchBar type="search" placeholder="Search" />
           <SearchBtn>Search</SearchBtn>
-          <SearchRecommendationDiv>
+          {/* <SearchRecommendationDiv>
             <RecommendateItem href="#">Searh item 1</RecommendateItem>
             <RecommendateItem href="#">Searh item 2</RecommendateItem>
             <RecommendateItem href="#">Searh item 3</RecommendateItem>
             <RecommendateItem href="#">Searh item 4</RecommendateItem>
-          </SearchRecommendationDiv>
+          </SearchRecommendationDiv> */}
         </SearchBox>
         <RightSide>
           <Cart>
