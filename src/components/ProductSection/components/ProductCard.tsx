@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import {
-  useGetProductQuery,
   useGetProductsQuery,
 } from "../../../features/products/api";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const CardContainer = styled.div`
+const CardContainer = styled(Link)`
   display: flex;
   gap: 8px;
   flex-direction: column;
@@ -71,28 +71,33 @@ const ProductCard = () => {
   useEffect(() => {
     console.log(data);
   });
+
+  const handleProduct = (productid:string)=>{
+    console.log(productid);
+    
+  }
   return (
     <>
       {isLoading && <h1>Loading..</h1>}
-      {data?.map((product) => {
+      {data?.map(({productid,thumbnail,discount,price,name}) => {
         return (
-          <CardContainer key={product.productid}>
-            <Thumb src={product.thumbnail} />
-            {product.discount != 0 && (
-              <DsicountSpan>{`${product.discount}% off`}</DsicountSpan>
+          <CardContainer key={productid} to={`/product/${productid}`}>
+            <Thumb src={thumbnail} />
+            {discount != 0 && (
+              <DsicountSpan>{`${discount}% off`}</DsicountSpan>
             )}
             <PriceDiv>
               <NewPriceSpan>
-                {`৳${product.price - (product.price * product.discount) / 100}`}
+                {`৳${price - (price * discount) / 100}`}
               </NewPriceSpan>
-              {product.discount != 0 && (
-                <OldPriceSpan>{`৳${product.price}`}</OldPriceSpan>
+              {discount != 0 && (
+                <OldPriceSpan>{`৳${price}`}</OldPriceSpan>
               )}
             </PriceDiv>
             <Title>
               {" "}
-              {`${product.name.substring(0, 22)}${
-                product.name.length > 22 && "..."
+              {`${name.substring(0, 22)}${
+                name.length > 22 && "..."
               }`}
             </Title>
             <ReviewContainer>

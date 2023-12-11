@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import "remixicon/fonts/remixicon.css";
+import { Link } from "react-router-dom";
 
 const NavbarMain = styled.div`
   background-color: #ffffff;
@@ -21,7 +22,7 @@ const NavbarContainer = styled.div`
     grid-template-areas: "menuLeft menuSearch menuRight";
   }
 `;
-const Logo = styled.a`
+const Logo = styled(Link)`
   color: #e43003;
   font-size: 24px;
   font-weight: bolder;
@@ -143,7 +144,7 @@ export const Navbar = () => {
           <SideMenuActionDiv>
             <i className="ri-menu-fill"></i>
           </SideMenuActionDiv>
-          <Logo>MarketNow</Logo>
+          <Logo to='/'>MarketNow</Logo>
         </LeftSide>
         <SearchBox>
           <SearchBar type="search" placeholder="Search" />
