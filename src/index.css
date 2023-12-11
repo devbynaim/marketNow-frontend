@@ -157,3 +157,13 @@ a{
   height: 300px;
   object-fit: cover;
 }
+
+.ri-star-fill{
+  color: #FACA51;
+}
+.ri-star-half-fill{
+  color: #FACA51;
+}
+.ri-star-line{
+  color: #E9E9E9;
+}

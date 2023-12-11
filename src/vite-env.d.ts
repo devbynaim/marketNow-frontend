@@ -35,7 +35,7 @@ interface Variant {
 }
 
 interface Product {
-  id: string;
+  productid: string;
   name: string;
   description: string;
   price: number;
@@ -45,6 +45,7 @@ interface Product {
   discount: number;
   variants: [string /*variantId*/];
   image: string;
+  thumbnail:string
 }
 
 interface category {

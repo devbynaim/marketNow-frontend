@@ -90,6 +90,7 @@ const SearchRecommendationDiv = styled.div`
   flex-direction: column;
   position: absolute;
   border-radius: 5px;
+  z-index: 999;
 `;
 
 const RecommendateItem = styled.a`

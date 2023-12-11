@@ -28,7 +28,7 @@ const Slider = () => {
   
   return (
     <SliderContainer>
-       <ImageGallery className="slideImage" items={images} autoPlay showThumbnails={false} showPlayButton={false} showBullets={true}/>
+       <ImageGallery className="slideImage" items={images} autoPlay showThumbnails={false} showFullscreenButton={false} showPlayButton={false} showBullets={true}/>
     </SliderContainer>
   )
 }
