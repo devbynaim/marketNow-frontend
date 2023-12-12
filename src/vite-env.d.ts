@@ -44,7 +44,7 @@ interface Product {
   brand: string;
   discount: number;
   variants: [string /*variantId*/];
-  image: string;
+  images: string;
   thumbnail:string
 }
 

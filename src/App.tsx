@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Navbar } from "./components/Navbar";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import Home from "./pages/home";
+import Home from "./pages/Home";
+import Product from "./pages/Product";
 
 const Main = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<>HI</>} />
+          <Route path="/product/:id" element={<Product/>} />
         </Routes>
       </Main>
     </BrowserRouter>

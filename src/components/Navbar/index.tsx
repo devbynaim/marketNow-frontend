@@ -17,7 +17,7 @@ const NavbarContainer = styled.div`
     "menuSearch  menuSearch menuSearch menuSearch";
 
   align-items: center;
-  height: 100%px;
+  height: 100%;
   @media screen and (min-width: 784px) {
     grid-template-areas: "menuLeft menuSearch menuRight";
   }

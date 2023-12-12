@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery"
 const SliderContainer = styled.div`
 background-color: #F5F5F5;

@@ -11,6 +11,12 @@
     "server": "json-server --watch db.json -p 3500"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.20",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.7",
     "@reduxjs/toolkit": "^1.9.7",
     "@rtk-query/graphql-request-base-query": "^2.2.0",
     "axios": "^1.6.2",

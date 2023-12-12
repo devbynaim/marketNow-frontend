@@ -51,6 +51,7 @@ const productsApi = apiSlilce.injectEndpoints({
           brand,
           discount,
           variants,
+          images,
         } = product;
         return {
           name,
@@ -60,6 +61,18 @@ const productsApi = apiSlilce.injectEndpoints({
           category,
           brand,
           discount,
+          images: images.data.map(({ attributes }) => {
+            const {
+              url: original,
+              formats: {
+                thumbnail: { url: thumbnail },
+              },
+            } = attributes;
+            return {
+              original: `${import.meta.env.VITE_BASEURL}${original}`,
+              thumbnail: `${import.meta.env.VITE_BASEURL}${thumbnail}`,
+            };
+          }),
           variants: variants.data.map((item) => item.attributes),
         };
       },

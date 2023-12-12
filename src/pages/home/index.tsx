@@ -1,5 +1,6 @@
-import Hero from "../../components/Hero"
-import ProductSection from "../../components/ProductSection"
+
+import Hero from "./HeroSection"
+import ProductSection from "./ProductSection"
 
 const Home = () => {
   return (

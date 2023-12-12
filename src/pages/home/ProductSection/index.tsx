@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ProductCard from "./components/ProductCard";
+import { useGetProductsQuery } from "../../../features/products/api";
 
 const ProductSectionContainer = styled.div`
   background-color: #fafafa;
@@ -18,11 +19,22 @@ const ProductDisplayContainer = styled.div`
 `;
 
 const ProductSection = () => {
+  const { isLoading, data } = useGetProductsQuery(1);
   return (
     <ProductSectionContainer className="container">
       <h4>Recommended To You</h4>
       <ProductDisplayContainer>
-        <ProductCard />
+        {isLoading && "loading....."}
+        {data?.map(({ productid, thumbnail, discount, price, name }) => (
+          <ProductCard
+            productid={productid}
+            thumbnail={thumbnail}
+            discount={discount}
+            price={price}
+            name={name}
+            key={productid}
+          />
+        ))}
       </ProductDisplayContainer>
     </ProductSectionContainer>
   );

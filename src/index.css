@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+
 html,
 body,
 div,
@@ -152,18 +153,15 @@ a{
 }
 
 .image-gallery-slide .image-gallery-image{
-  /* overflow: hidden; */
-  /* max-height: 327px !important; */
-  height: 300px;
+  overflow: hidden;
+  max-height: 100%;
+  max-width: 100%;
+  height: 330px !important;
   object-fit: cover;
 }
 
-.ri-star-fill{
-  color: #FACA51;
-}
-.ri-star-half-fill{
-  color: #FACA51;
-}
-.ri-star-line{
-  color: #E9E9E9;
+.tst .image-gallery-slide .image-gallery-image{
+  height: 100%  !important;
+  max-width: 500px;
+  max-height: 350px !important;
 }
