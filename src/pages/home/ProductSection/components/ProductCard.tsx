@@ -79,7 +79,9 @@ const ProductCard: FC<ProductCardProps> = ({
       <Thumb src={thumbnail} />
       {discount != 0 && <DsicountSpan>{`${discount}% off`}</DsicountSpan>}
       <PriceDiv>
-        <NewPriceSpan>{`৳${price - (price * discount) / 100}`}</NewPriceSpan>
+        <NewPriceSpan>{`৳$${Math.floor(
+          price - (price * discount) / 100
+        )}`}</NewPriceSpan>
         {discount != 0 && <OldPriceSpan>{`৳${price}`}</OldPriceSpan>}
       </PriceDiv>
       <Title> {`${name.substring(0, 22)}${name.length > 22 && "..."}`}</Title>

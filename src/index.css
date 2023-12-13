@@ -165,3 +165,12 @@ a{
   max-width: 500px;
   max-height: 350px !important;
 }
+
+
+.productDescription ul{
+  list-style: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #000000;
+}

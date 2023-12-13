@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import ImageGallery from "react-image-gallery";
 import { FC, useState } from "react";
-import { useGetProductQuery } from "../../../features/products/api";
 import { Button, Rating, ToggleButton, ToggleButtonGroup } from "@mui/material";
 
 const ProductHeaderContainer = styled.div`
@@ -34,8 +33,11 @@ const Detial = styled.div`
   flex-direction: column;
 `;
 
-const Price = styled.span`
-  font-size: 36px;
+const Price = styled.div`
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 32px;
   font-weight: bold;
   color: #e43003;
   letter-spacing: -2px;
@@ -44,12 +46,19 @@ const Price = styled.span`
 const RatingContainer = styled.div`
   display: flex;
   align-items: center;
+  font-size: 14px;
 `;
 
 const Title = styled.span`
   font-size: 18px;
   font-weight: 400;
-  
+`;
+
+const BrandDiv = styled.div`
+  display: flex;
+  gap: 8px;
+  color: #616161;
+  font-size: 14px;
 `;
 
 const SizeDiv = styled.div`
@@ -59,9 +68,8 @@ const SizeDiv = styled.div`
 `;
 
 const ToggleBtn = styled(ToggleButton)`
-width: 60px;
-
-`
+  width: 60px;
+`;
 
 const QuantityDiv = styled.div`
   display: flex;
@@ -88,7 +96,7 @@ const AddCartBtn = styled(Button)`
   width: 100%;
 `;
 
-const ProductHeader: FC<{ productid: string }> = ({ productid }) => {
+const ProductHeader: FC<{ data: Product }> = ({ data }) => {
   const [quantity, setQuantity] = useState(0);
   const [alignment, setAlignment] = useState("M");
 
@@ -96,11 +104,10 @@ const ProductHeader: FC<{ productid: string }> = ({ productid }) => {
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string
   ) => {
-    setAlignment(newAlignment);
+    if (newAlignment) {
+      setAlignment(newAlignment);
+    }
   };
-
-  const { isLoading, isError, data } = useGetProductQuery(productid);
-  console.log(data?.images);
 
   return (
     <ProductHeaderContainer>
@@ -118,12 +125,30 @@ const ProductHeader: FC<{ productid: string }> = ({ productid }) => {
         )}
       </SliderContainer>
       <Detial>
-        <Price>৳ {data?.price}</Price>
+        <Title>{data?.name}</Title>
+        <Price>
+          <span>{`৳ ${Math.floor(
+            data.price - (data.price * data.discount) / 100
+          )}`}</span>
+          <span
+            style={{
+              fontSize: "14px",
+              color: "#616161",
+              textDecoration: "line-through",
+            }}
+          >
+            {data.price}
+          </span>
+        </Price>
         <RatingContainer>
           <Rating readOnly defaultValue={2.5} precision={0.5} size="small" /> |
           185 Reviews
         </RatingContainer>
-        <Title>{data?.name}</Title>
+        {/* <Title>{data?.name}</Title> */}
+        <BrandDiv>
+          <span>brand</span>
+          <span>{data.brand}</span>
+        </BrandDiv>
 
         <SizeDiv>
           <span style={{ width: "15%" }}>Sizes</span>
@@ -158,12 +183,13 @@ const ProductHeader: FC<{ productid: string }> = ({ productid }) => {
             >
               -
             </SubtractQuantiry>
-            <span>{quantity}</span>
+            <span style={{ color: "#000000" }}>{quantity}</span>
             <AddQuantiry onClick={() => setQuantity((p) => p + 1)}>
               +
             </AddQuantiry>
           </div>
         </QuantityDiv>
+
         <ActionDiv>
           <BuyBtn variant="contained">Buy Now</BuyBtn>
           <AddCartBtn variant="contained">Add to Cart</AddCartBtn>
